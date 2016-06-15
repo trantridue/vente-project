@@ -54,8 +54,8 @@
 	</mvc:annotation-driven>
  	<bean id="customHandlerMapping" class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" />
 	<bean class="com.nordnet.common.swagger.configuration.SwaggerConfig" >
-		<property name="title"><value>Opale API</value></property>
-		<property name="description"><value>Liste des services Opale</value></property>
+		<property name="title"><value>Vente API</value></property>
+		<property name="description"><value>Liste des services Vente</value></property>
 	</bean>		
 
 </beans>

@@ -19,14 +19,14 @@
 ### 4.2. DEPLOYMENT INSTRUCTIONS
 #### 4.2.1 TOMCAT CONFIGURATION
 	- tomcat/conf/server.xml: add new resources
-			<Resource type="javax.sql.DataSource" auth="Container" name="jdbc/AppWatcherDS"
+			<Resource type="javax.sql.DataSource" auth="Container" name="jdbc/venteDS"
               maxWait="5000" minIdle="2" maxIdle="30" maxActive="150"
               username="test" password="test"
-              url="jdbc:mysql://localhost:3306/appwatcher_qualif"
+              url="jdbc:mysql://localhost:3306/test_vente"
               driverClassName="com.mysql.jdbc.Driver" validationQuery="SELECT 1" validationQueryTimeOut="1" testOnBorrow="true"/>
 			 
 	- tomcat/conf/context.xml: 	add new resouce link
-			<ResourceLink name="jdbc/AppWatcherDS" global="jdbc/AppWatcherDS" auth="Container" type="javax.sql.DataSource" />
+			<ResourceLink name="jdbc/venteDS" global="jdbc/venteDS" auth="Container" type="javax.sql.DataSource" />
 #### 4.2.2 DEPLOYMENT BY BAMBOO's JOB
 
 
