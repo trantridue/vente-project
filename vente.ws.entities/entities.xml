@@ -1,0 +1,62 @@
+<entities>
+	<author>MMORTIER, JLDANSOU</author>
+	<classes>
+		<String>
+			<testValue>"String"</testValue>
+		</String>
+		<class name="List&lt;String&gt;">
+			<imports>
+				<java.util.List />
+			</imports>
+			<testImports>
+				<java.util.Arrays />
+			</testImports>
+			<testImportsStatic>
+				<java.util.Arrays.asList />
+			</testImportsStatic>
+			<testValue>asList("string")</testValue>
+		</class>		
+		<Identifier>
+			<imports>
+				<com.nordnet.common.valueObject.identifier.Identifier />
+			</imports>
+			<testValue>Identifier.build("identifier")</testValue>
+		</Identifier>
+		<Boolean>
+			<testValue>true</testValue>
+		</Boolean>
+		<Integer>
+			<testValue>1</testValue>
+		</Integer>
+		<LocalDate>
+			<imports>
+				<org.joda.time.LocalDate />
+			</imports>
+			<testValue>LocalDate.now()</testValue>
+		</LocalDate>
+		<LocalDateTime>
+			<imports>
+				<org.joda.time.LocalDateTime />
+			</imports>
+			<testValue>LocalDateTime.now()</testValue>
+		</LocalDateTime>
+	</classes>
+	<packages>
+		<package name="com.nordnet.vente.ws.entities">
+			<entities>
+				<User>
+					<properties>
+						<username type="String" />
+						<password type="String" />
+						<name type="String" />
+						<email type="String" />
+						<address type="String" />
+						<createDate type="LocalDateTime" />
+						<updateDate type="LocalDateTime" />
+					</properties>
+				</User>
+			</entities>
+		</package>
+		
+	</packages>
+</entities>

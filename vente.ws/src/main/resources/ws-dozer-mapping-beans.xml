@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net schema/beanmapping.xsd">
+
+	<configuration>
+		<stop-on-errors>true</stop-on-errors>
+		<date-format>MM/dd/yyyy HH:mm</date-format>
+		<wildcard>true</wildcard>
+
+		<custom-converters>
+
+			<converter
+				type="com.nordnet.vente.ws.converter.UserConverter">
+				<class-a>com.nordnet.vente.domain.model.User</class-a>
+				<class-b>com.nordnet.vente.ws.entities.User</class-b>
+			</converter>
+
+		</custom-converters>
+	</configuration>
+
+
+</mappings>
