@@ -31,4 +31,9 @@ public class UserServiceImpl implements UserService {
 	public List<User> getUserByPeriod(LocalDateTime startDate, LocalDateTime endDate) {
 		return userRepository.findByPeriod(startDate, endDate);
 	}
+
+	@Override
+	public User addUser(User user) {
+		return userRepository.save(user);
+	}
 }

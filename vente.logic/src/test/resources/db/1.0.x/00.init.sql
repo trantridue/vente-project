@@ -19,14 +19,14 @@ drop table if exists rule;
 SET FOREIGN_KEY_CHECKS=1;
 
 CREATE TABLE  `user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `address` varchar(1000) DEFAULT NULL,
-  `create_date` DATETIME,
-  `update_date` DATETIME,
+  `create_date` datetime DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 

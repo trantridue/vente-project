@@ -75,8 +75,6 @@ public class User implements Comparable<User> {
 		com.nordnet.common.valueObject.utils.Null.checkNotNullOrEmpty("name", name);
 		com.nordnet.common.valueObject.utils.Null.checkNotNullOrEmpty("email", email);
 		com.nordnet.common.valueObject.utils.Null.checkNotNullOrEmpty("address", address);
-		com.nordnet.common.valueObject.utils.Null.checkNotNullOrEmpty("createDate", createDate);
-		com.nordnet.common.valueObject.utils.Null.checkNotNullOrEmpty("updateDate", updateDate);
 	}
 
 	/**

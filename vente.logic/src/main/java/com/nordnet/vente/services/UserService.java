@@ -13,4 +13,6 @@ public interface UserService {
 	public List<User> getUserByName(String name);
 
 	public List<User> getUserByPeriod(LocalDateTime startDate, LocalDateTime endDate);
+
+	public User addUser(User user);
 }

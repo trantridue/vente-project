@@ -15,6 +15,12 @@
 				<class-a>com.nordnet.vente.domain.model.User</class-a>
 				<class-b>com.nordnet.vente.ws.entities.User</class-b>
 			</converter>
+			
+			<converter
+				type="com.nordnet.vente.ws.converter.UserConverter">
+				<class-a>com.nordnet.vente.ws.entities.User</class-a>
+				<class-b>com.nordnet.vente.domain.model.User</class-b>
+			</converter>
 
 		</custom-converters>
 	</configuration>

@@ -51,10 +51,15 @@
 						<name type="String" />
 						<email type="String" />
 						<address type="String" />
-						<createDate type="LocalDateTime" />
-						<updateDate type="LocalDateTime" />
+						<createDate type="LocalDateTime" optional="true"/>
+						<updateDate type="LocalDateTime" optional="true"/>
 					</properties>
 				</User>
+				<Reference>
+					<properties>
+						<id type="Identifier" />
+					</properties>
+				</Reference>
 			</entities>
 		</package>
 		
