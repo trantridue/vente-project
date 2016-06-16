@@ -24,6 +24,7 @@ CREATE TABLE  `user` (
   `password` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
+  `tel` varchar(16) DEFAULT NULL,
   `address` varchar(1000) DEFAULT NULL,
   `create_date` datetime DEFAULT NULL,
   `update_date` datetime DEFAULT NULL,

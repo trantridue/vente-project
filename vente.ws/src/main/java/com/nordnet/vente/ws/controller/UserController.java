@@ -19,11 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.nordnet.common.valueObject.identifier.Identifier;
 import com.nordnet.common.wadl.WadlController;
 import com.nordnet.vente.domain.model.User;
 import com.nordnet.vente.services.UserService;
-import com.nordnet.vente.ws.entities.Reference;
+import com.nordnet.vente.ws.entities.UserInfo;
 import com.wordnik.swagger.annotations.Api;
 
 /**
@@ -85,11 +84,11 @@ public class UserController extends WadlController {
 
 	@RequestMapping(value = "/add", method = POST, produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public Reference addUser(@RequestBody final com.nordnet.vente.ws.entities.User user) throws ConverterException {
-		return Reference
-				.builder()
-				.id(Identifier.build(userService
-						.addUser(converter.convert(user, com.nordnet.vente.domain.model.User.class)).getId().toString()))
-				.build();
+	public com.nordnet.vente.ws.entities.User addUser(@RequestBody final UserInfo userInfo) throws ConverterException {
+		// Handle input
+		User user = converter.convert(userInfo, com.nordnet.vente.domain.model.User.class);
+
+		// Service and return
+		return converter.convert(userService.addUser(user), com.nordnet.vente.ws.entities.User.class);
 	}
 }

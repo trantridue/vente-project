@@ -1,5 +1,5 @@
 <entities>
-	<author>MMORTIER, JLDANSOU</author>
+	<author>DUE</author>
 	<classes>
 		<String>
 			<testValue>"String"</testValue>
@@ -46,15 +46,27 @@
 			<entities>
 				<User>
 					<properties>
-						<username type="String" />
-						<password type="String" />
-						<name type="String" />
-						<email type="String" />
-						<address type="String" />
+						<id type="Long" />
+						<username type="String"  optional="true"/>
+						<password type="String"  optional="true"/>
+						<name type="String"  optional="true"/>
+						<email type="String"  optional="true"/>
+						<tel type="String"  optional="true"/>
+						<address type="String"  optional="true"/>
 						<createDate type="LocalDateTime" optional="true"/>
 						<updateDate type="LocalDateTime" optional="true"/>
 					</properties>
 				</User>
+				<UserInfo>
+					<properties>
+						<username type="String"  optional="true"/>
+						<password type="String"  optional="true"/>
+						<name type="String"  optional="true"/>
+						<email type="String"  optional="true"/>
+						<tel type="String"  optional="true"/>
+						<address type="String"  optional="true"/>
+					</properties>
+				</UserInfo>
 				<Reference>
 					<properties>
 						<id type="Identifier" />

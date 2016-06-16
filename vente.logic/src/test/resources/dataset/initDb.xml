@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE dataset SYSTEM "./src/test/resources/dtd/vente.dtd">
 <dataset>
-  <user id="1" username="admin" password="123456" name="quan tri" address="van phuc" email="admin@gmail.com" update_date="2016-06-11 10:10:10" create_date="2016-06-09 10:10:10"/>
-  <user id="2" username="due" password="11112222" name="tran tri due" address="van phuc" email="trantridue@gmail.com" update_date="2016-06-12 10:10:10" create_date="2016-06-10 10:10:10"/>
-  <user id="3" username="hien" password="333444" name="tran thi thu hien" address="Ha dong" email="htranthithu@gmail.com" update_date="2016-06-13 10:10:10" create_date="2016-06-11 10:10:10"/>
-  <user id="4" username="linh" password="55556666" name="ta khanh linh" address="van phu" email="linhtk@gmail.com" update_date="2016-06-14 10:10:10" create_date="2016-06-12 10:10:10"/>
+  <user id="1" username="admin" tel="123456789" password="123456" name="quan tri" address="van phuc" email="admin@gmail.com" update_date="2016-06-11 10:10:10" create_date="2016-06-09 10:10:10"/>
+  <user id="2" username="due" tel="123456789" password="11112222" name="tran tri due" address="van phuc" email="trantridue@gmail.com" update_date="2016-06-12 10:10:10" create_date="2016-06-10 10:10:10"/>
+  <user id="3" username="hien" tel="123456789" password="333444" name="tran thi thu hien" address="Ha dong" email="htranthithu@gmail.com" update_date="2016-06-13 10:10:10" create_date="2016-06-11 10:10:10"/>
+  <user id="4" username="linh" tel="123456789" password="55556666" name="ta khanh linh" address="van phu" email="linhtk@gmail.com" update_date="2016-06-14 10:10:10" create_date="2016-06-12 10:10:10"/>
 </dataset>

@@ -19,8 +19,8 @@ public class UserTest extends GlobalTestCase {
 	public void successful() {
 		User user =
 				User.builder().username("username").password("password").name("name").address("address")
-						.createDate(LocalDateTime.now()).updateDate(LocalDateTime.now()).email("trantridue@gmail.com")
-						.build();
+						.tel("123456789").createDate(LocalDateTime.now()).updateDate(LocalDateTime.now())
+						.email("trantridue@gmail.com").build();
 		assertTrue(hasProtectedEmptyConstructorEqualsAndHashCodeAndCompareTo(User.class, user));
 		assertTrue(canBeJSonSerialized(user));
 	}

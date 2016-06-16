@@ -18,7 +18,7 @@
 			
 			<converter
 				type="com.nordnet.vente.ws.converter.UserConverter">
-				<class-a>com.nordnet.vente.ws.entities.User</class-a>
+				<class-a>com.nordnet.vente.ws.entities.UserInfo</class-a>
 				<class-b>com.nordnet.vente.domain.model.User</class-b>
 			</converter>
 

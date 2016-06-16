@@ -10,6 +10,7 @@
     password CDATA #IMPLIED
     name CDATA #REQUIRED
     email CDATA #IMPLIED
+    tel CDATA #IMPLIED
     address CDATA #IMPLIED
     create_date CDATA #IMPLIED
     update_date CDATA #IMPLIED

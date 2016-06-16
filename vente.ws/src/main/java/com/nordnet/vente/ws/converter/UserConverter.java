@@ -12,7 +12,7 @@ import com.nordnet.vente.domain.model.User;
 /**
  * The Class User.
  *
- * @author jldansou
+ * @author dtrantri
  */
 public class UserConverter implements CustomConverter {
 
@@ -24,14 +24,15 @@ public class UserConverter implements CustomConverter {
 			User user = (User) source;
 
 			return com.nordnet.vente.ws.entities.User.builder().username(user.getUsername()).address(user.getAddress())
-					.password(user.getPassword()).email(user.getEmail()).name(user.getName())
-					.createDate(user.getCreateDate()).updateDate(user.getUpdateDate()).build();
-		} else if (source instanceof com.nordnet.vente.ws.entities.User) {
-			com.nordnet.vente.ws.entities.User user = (com.nordnet.vente.ws.entities.User) source;
+					.password(user.getPassword()).email(user.getEmail()).name(user.getName()).id(user.getId())
+					.tel(user.getTel()).createDate(user.getCreateDate()).updateDate(user.getUpdateDate()).build();
+		} else if (source instanceof com.nordnet.vente.ws.entities.UserInfo) {
+			com.nordnet.vente.ws.entities.UserInfo userInfo = (com.nordnet.vente.ws.entities.UserInfo) source;
 
-			return com.nordnet.vente.domain.model.User.builder().username(user.getUsername())
-					.address(user.getAddress()).password(user.getPassword()).email(user.getEmail())
-					.name(user.getName()).createDate(LocalDateTime.now()).updateDate(LocalDateTime.now()).build();
+			return com.nordnet.vente.domain.model.User.builder().username(userInfo.getUsername())
+					.address(userInfo.getAddress()).password(userInfo.getPassword()).email(userInfo.getEmail())
+					.tel(userInfo.getTel()).name(userInfo.getName()).createDate(LocalDateTime.now())
+					.updateDate(LocalDateTime.now()).build();
 		}
 		throw new InvalidArgumentException(source.getClass().getName(), "bad source for conversion");
 	}
