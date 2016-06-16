@@ -8,6 +8,8 @@ import org.joda.time.LocalDateTime;
 
 import com.nordnet.common.valueObject.exception.InvalidArgumentException;
 import com.nordnet.vente.domain.model.User;
+import com.nordnet.vente.exception.VenteException;
+import com.nordnet.vente.utils.Md5Utils;
 
 /**
  * The Class User.
@@ -29,10 +31,14 @@ public class UserConverter implements CustomConverter {
 		} else if (source instanceof com.nordnet.vente.ws.entities.UserInfo) {
 			com.nordnet.vente.ws.entities.UserInfo userInfo = (com.nordnet.vente.ws.entities.UserInfo) source;
 
-			return com.nordnet.vente.domain.model.User.builder().username(userInfo.getUsername())
-					.address(userInfo.getAddress()).password(userInfo.getPassword()).email(userInfo.getEmail())
-					.tel(userInfo.getTel()).name(userInfo.getName()).createDate(LocalDateTime.now())
-					.updateDate(LocalDateTime.now()).build();
+			try {
+				return com.nordnet.vente.domain.model.User.builder().username(userInfo.getUsername())
+						.address(userInfo.getAddress()).password(Md5Utils.getMd5(userInfo.getPassword()))
+						.email(userInfo.getEmail()).tel(userInfo.getTel()).name(userInfo.getName())
+						.createDate(LocalDateTime.now()).updateDate(LocalDateTime.now()).build();
+			} catch (VenteException e) {
+				e.printStackTrace();
+			}
 		}
 		throw new InvalidArgumentException(source.getClass().getName(), "bad source for conversion");
 	}
