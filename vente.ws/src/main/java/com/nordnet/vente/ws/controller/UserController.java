@@ -63,7 +63,7 @@ public class UserController extends WadlController {
 		return users;
 	}
 
-	@RequestMapping(value = "/", method = GET, produces = APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/byperiod", method = GET, produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<com.nordnet.vente.ws.entities.User> getUserByPeriod(
 			@RequestParam(value = "startFrom", required = true) String startFrom,

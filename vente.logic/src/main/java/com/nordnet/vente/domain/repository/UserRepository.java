@@ -13,6 +13,7 @@ import com.nordnet.vente.domain.model.User;
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<User, Long> {
 
+	@Query("from User u where u.name like %:name% order by u.name desc")
 	List<User> findByName(@Param("name") String name);
 
 	@Query("from User m where m.createDate between :startDate and :endDate order by m.createDate desc")
