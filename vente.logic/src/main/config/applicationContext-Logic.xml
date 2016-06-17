@@ -31,7 +31,13 @@
 		</property>
 		<property name="packagesToScan" value="com.nordnet.vente" />
 	</bean>
-
+	<bean id="venteExceptionHandler" class="com.nordnet.vente.exception.VenteExceptionHandler" />
+	<bean id="applicationContextHolder" class="com.nordnet.vente.utils.ApplicationContextHolder" />
+	
+	<bean id="venteExceptionsProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="classpath:vente-exceptions.properties" />
+	</bean>
 	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/venteDS" />
 
 	<context:annotation-config />

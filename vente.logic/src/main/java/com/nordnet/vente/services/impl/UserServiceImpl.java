@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.nordnet.vente.domain.model.User;
 import com.nordnet.vente.domain.repository.UserRepository;
+import com.nordnet.vente.exception.VenteErrorCode;
+import com.nordnet.vente.exception.VenteException;
 import com.nordnet.vente.services.UserService;
 
 @Service("userService")
@@ -35,5 +37,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User addUser(User user) {
 		return userRepository.save(user);
+	}
+
+	@Override
+	public Boolean deleteUser(Long userid) throws VenteException {
+		// Service and return
+		try {
+			userRepository.delete(userid);
+			return true;
+		} catch (Exception e) {
+			throw new VenteException(VenteErrorCode.CANNOT_DELETE_USER_ID, userid);
+		}
 	}
 }

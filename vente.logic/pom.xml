@@ -52,6 +52,12 @@
 		</dependency>
 
 		<!-- NORDNET FRAMEWORK -->
+			<!-- CONVERTER -->
+		<dependency>
+			<groupId>framework.tools</groupId>
+			<artifactId>converter</artifactId>
+			<version>3.1.2</version>
+		</dependency>
 		<!-- EXCEPTION / ERROR CODE FILE -->
 		<dependency>
 			<groupId>framework</groupId>

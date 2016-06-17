@@ -1,58 +1,91 @@
 package com.nordnet.vente.exception;
 
+import com.nordnet.common.valueObject.exception.InfoErreur;
+
 /**
- * Exception contenant les inforamtions des problems de vente.
- * 
- * @author Due
- * 
+ * La classe d exception pour opale.
+ *
+ * @author anisselmane.
+ *
  */
 public class VenteException extends Exception {
 
 	/**
-	 * serial Version UID.
+	 * Serialization token.
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int errorCode;
-
-	private String errorMessage;
+	/**
+	 * Code d'erreur enum.
+	 */
+	private final VenteErrorCode venteErrorCode;
 
 	/**
-	 * Constructeur par default.
+	 * Code d'erreur.
 	 */
-	public VenteException(int errorCode, String errorMessage) {
-		this.errorCode = errorCode;
-		this.errorMessage = errorMessage;
+	private final InfoErreur infoErreur;
+
+	/**
+	 * Cause d'erreur.
+	 */
+	private final Throwable errorCause;
+
+	/**
+	 * @return code d'erreur.
+	 */
+
+	/**
+	 * @return cause d'erreur.
+	 */
+	public Throwable getErrorCause() {
+		return errorCause;
 	}
 
 	/**
-	 * @return the errorCode
+	 * Constructor with {@link VenteErrorCode}.
+	 *
+	 * @param venteErrorCode
+	 *            Opale error code.
+	 * @param parameters
+	 *            Parameters.
 	 */
-	public int getErrorCode() {
-		return errorCode;
+	public VenteException(final VenteErrorCode venteErrorCode, final Object... parameters) {
+
+		this(null, venteErrorCode, null, parameters);
+	}
+
+	public VenteException(final VenteErrorCode venteErrorCode, final Throwable errorCause, final Object... parameters) {
+
+		this(null, venteErrorCode, errorCause, parameters);
 	}
 
 	/**
-	 * @param errorCode
-	 *            the errorCode to set
+	 *
+	 * @param infoErreur
+	 *            .
 	 */
-	public void setErrorCode(int errorCode) {
-		this.errorCode = errorCode;
+	public VenteException(final InfoErreur infoErreur, final VenteErrorCode venteErrorCode, final Throwable errorCause,
+			final Object... parameters) {
+		super(venteErrorCode.getMessage(parameters));
+		this.infoErreur = infoErreur;
+		this.venteErrorCode = venteErrorCode;
+		this.errorCause = errorCause;
 	}
 
 	/**
-	 * @return the errorMessage
+	 *
+	 * @return {@link VenteErrorCode}.
 	 */
-	public String getErrorMessage() {
-		return errorMessage;
+	public VenteErrorCode getOpaleErrorCode() {
+		return venteErrorCode;
 	}
 
 	/**
-	 * @param errorMessage
-	 *            the errorMessage to set
+	 *
+	 * @return {@link InfoErreur}.
 	 */
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
+	public InfoErreur getInfoErreur() {
+		return infoErreur;
 	}
 
 }
