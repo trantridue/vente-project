@@ -6,6 +6,7 @@ import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nordnet.common.valueObject.utils.Null;
 import com.nordnet.vente.domain.model.User;
 import com.nordnet.vente.domain.repository.UserRepository;
 import com.nordnet.vente.exception.VenteErrorCode;
@@ -47,6 +48,21 @@ public class UserServiceImpl implements UserService {
 			return true;
 		} catch (Exception e) {
 			throw new VenteException(VenteErrorCode.CANNOT_DELETE_USER_ID, userid);
+		}
+	}
+
+	@Override
+	public Boolean updateUser(User user) throws VenteException {
+		// Service and return
+		User userDB = userRepository.findByUsername(user.getUsername());
+		if (Null.isNullOrEmpty(userDB)) {
+			throw new VenteException(VenteErrorCode.USERNAME_NOT_FOUND, user.getUsername());
+		}
+		try {
+			userRepository.save(user);
+			return true;
+		} catch (Exception e) {
+			throw new VenteException(VenteErrorCode.CANNOT_DELETE_USER_ID, user.getUsername());
 		}
 	}
 }

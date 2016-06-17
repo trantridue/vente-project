@@ -102,6 +102,17 @@ public class UserController extends WadlController {
 		return converter.convert(userService.addUser(user), com.nordnet.vente.ws.entities.User.class);
 	}
 
+	@RequestMapping(value = "/update", method = POST, produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
+	@ResponseBody
+	@ApiOperation(value = "update use by username", notes = "update user by username")
+	public Boolean updateUser(@RequestBody final UserInfo userInfo) throws ConverterException, VenteException {
+		// Handle input
+		User user = converter.convert(userInfo, com.nordnet.vente.domain.model.User.class);
+
+		// Service and return
+		return userService.updateUser(user);
+	}
+
 	@RequestMapping(value = "/delete/{userid}", method = DELETE, produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ApiOperation(value = "delete user", notes = "Delete user by id, if true then deleting success")

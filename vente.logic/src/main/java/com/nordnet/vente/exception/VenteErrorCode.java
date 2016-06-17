@@ -18,7 +18,7 @@ public enum VenteErrorCode {
 	/**
 	 * Cannot delete user with id = %s
 	 */
-	CANNOT_DELETE_USER_ID("1.0.1"), CONVERTION_ERROR("1.0.2"), ;
+	CANNOT_DELETE_USER_ID("1.0.1"), CONVERTION_ERROR("1.0.2"), USERNAME_NOT_FOUND("1.0.3");
 
 	/**
 	 * The error code.
