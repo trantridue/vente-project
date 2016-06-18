@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.nordnet.common.wadl.WadlController;
 import com.nordnet.vente.domain.model.User;
 import com.nordnet.vente.domain.repository.UserRepository;
 import com.nordnet.vente.exception.VenteException;
@@ -40,7 +39,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @Api(value = "user", description = "user API")
 @Controller
 @RequestMapping("/user/")
-public class UserController extends WadlController {
+public class UserController {
 
 	@Autowired
 	private UserService userService;
