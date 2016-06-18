@@ -13,6 +13,7 @@ import com.nordnet.vente.exception.VenteErrorCode;
 import com.nordnet.vente.exception.VenteException;
 import com.nordnet.vente.services.UserService;
 import com.nordnet.vente.utils.Md5Utils;
+import com.nordnet.vente.utils.StringUtils;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -60,11 +61,12 @@ public class UserServiceImpl implements UserService {
 			throw new VenteException(VenteErrorCode.USERNAME_NOT_FOUND, user.getUsername());
 		}
 		try {
-			userDB.setAddress(user.getAddress());
-			userDB.setEmail(user.getEmail());
-			userDB.setName(user.getName());
-			userDB.setTel(user.getTel());
-			userDB.setPassword(Md5Utils.getMd5(user.getPassword()));
+			userDB.setAddress(StringUtils.getNotNullString(user.getAddress(), userDB.getAddress()));
+			userDB.setEmail(StringUtils.getNotNullString(user.getEmail(), userDB.getEmail()));
+			userDB.setName(StringUtils.getNotNullString(user.getName(), userDB.getName()));
+			userDB.setTel(StringUtils.getNotNullString(user.getTel(), userDB.getTel()));
+			userDB.setPassword(!Null.isNullOrEmpty(user.getPassword()) ? Md5Utils.getMd5(user.getPassword()) : userDB
+					.getPassword());
 			userDB.setUpdateDate(LocalDateTime.now());
 			return userRepository.save(userDB);
 		} catch (Exception e) {
