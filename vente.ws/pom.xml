@@ -7,7 +7,6 @@
 	</parent>
 	<artifactId>vente.ws</artifactId>
 	<packaging>war</packaging>
-	<name>vente-ws</name>
 
 	<dependencies>
 		<!-- SPRING -->
@@ -115,6 +114,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}-${blurredVersion}</finalName>
 		<plugins>
 			<!-- AspectJ compiler -->
  			<plugin>
@@ -158,4 +158,5 @@
 		</plugins>
 	</build>
 	<description>vente webservice</description>
+	<version>1.0.0</version>
 </project>

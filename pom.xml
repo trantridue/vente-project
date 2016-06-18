@@ -10,7 +10,7 @@
 	<artifactId>vente.project</artifactId>
 	<packaging>pom</packaging>
 	<name>New vente parent pom</name>
-	<version>1.0.16-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<modules>
 		<module>vente.logic</module>

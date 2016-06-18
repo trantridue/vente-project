@@ -5,6 +5,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,7 +103,7 @@ public class UserController extends WadlController {
 		return converter.convert(userService.addUser(user), com.nordnet.vente.ws.entities.User.class);
 	}
 
-	@RequestMapping(value = "/update/byusername", method = POST, produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/update/byusername", method = PUT, produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ApiOperation(value = "update use by username", notes = "update user by username")
 	public com.nordnet.vente.ws.entities.User updateUserByUserName(@RequestBody final UserInfo userInfo)
