@@ -23,8 +23,13 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 
 	@Override
-	public List<User> getAllUser() {
-		return userRepository.findAll();
+	public List<User> getAllUser() throws VenteException {
+		List<User> users = userRepository.findAll();
+		if (users.size() > 10) {
+			throw new VenteException(VenteErrorCode.OVER_LIMIT_NBR_USER);
+		} else {
+			return users;
+		}
 	}
 
 	@Override
@@ -38,8 +43,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User addUser(User user) {
-		return userRepository.save(user);
+	public User addUser(User user) throws VenteException {
+		try {
+			return userRepository.save(user);
+		} catch (Exception e) {
+			throw new VenteException(VenteErrorCode.CANNOT_ADD_USER, user.getUsername());
+		}
 	}
 
 	@Override

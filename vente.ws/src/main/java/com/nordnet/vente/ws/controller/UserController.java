@@ -94,7 +94,8 @@ public class UserController {
 	@RequestMapping(value = "/add", method = POST, produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ApiOperation(value = "Add new user", notes = "Add a new user, return user with id")
-	public com.nordnet.vente.ws.entities.User addUser(@RequestBody final UserInfo userInfo) throws ConverterException {
+	public com.nordnet.vente.ws.entities.User addUser(@RequestBody final UserInfo userInfo)
+			throws ConverterException, VenteException {
 		// Handle input
 		User user = converter.convert(userInfo, com.nordnet.vente.domain.model.User.class);
 
