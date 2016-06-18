@@ -17,7 +17,7 @@ public interface UserService {
 
 	public User addUser(User user);
 
-	public User updateUserByUserName(User user) throws VenteException;
+	public User updateUserByUserName(User user, String username) throws VenteException;
 
 	public Boolean deleteUser(Long userid) throws VenteException;
 }

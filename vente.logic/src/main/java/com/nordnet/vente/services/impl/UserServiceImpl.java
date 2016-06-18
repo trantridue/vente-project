@@ -54,13 +54,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User updateUserByUserName(User user) throws VenteException {
+	public User updateUserByUserName(User user, String username) throws VenteException {
 		// Service and return
-		User userDB = userRepository.findByUsername(user.getUsername());
+		User userDB = userRepository.findByUsername(username);
 		if (Null.isNullOrEmpty(userDB)) {
 			throw new VenteException(VenteErrorCode.USERNAME_NOT_FOUND, user.getUsername());
 		}
 		try {
+			userDB.setUsername(StringUtils.getNotNullString(user.getUsername(), userDB.getUsername()));
 			userDB.setAddress(StringUtils.getNotNullString(user.getAddress(), userDB.getAddress()));
 			userDB.setEmail(StringUtils.getNotNullString(user.getEmail(), userDB.getEmail()));
 			userDB.setName(StringUtils.getNotNullString(user.getName(), userDB.getName()));

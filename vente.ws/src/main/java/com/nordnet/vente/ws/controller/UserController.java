@@ -103,11 +103,11 @@ public class UserController extends WadlController {
 		return converter.convert(userService.addUser(user), com.nordnet.vente.ws.entities.User.class);
 	}
 
-	@RequestMapping(value = "/update/byusername", method = PUT, produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/update/{username}", method = PUT, produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ApiOperation(value = "update use by username", notes = "update user by username")
-	public com.nordnet.vente.ws.entities.User updateUserByUserName(@RequestBody final UserInfo userInfo)
-			throws ConverterException, VenteException {
+	public com.nordnet.vente.ws.entities.User updateUserByUserName(@RequestBody final UserInfo userInfo,
+			@PathVariable("username") final String username) throws ConverterException, VenteException {
 		// Handle input
 		User user = converter.convert(userInfo, com.nordnet.vente.domain.model.User.class);
 
