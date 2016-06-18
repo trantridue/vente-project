@@ -12,6 +12,7 @@ import com.nordnet.vente.domain.repository.UserRepository;
 import com.nordnet.vente.exception.VenteErrorCode;
 import com.nordnet.vente.exception.VenteException;
 import com.nordnet.vente.services.UserService;
+import com.nordnet.vente.utils.Md5Utils;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -52,17 +53,22 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Boolean updateUser(User user) throws VenteException {
+	public User updateUserByUserName(User user) throws VenteException {
 		// Service and return
 		User userDB = userRepository.findByUsername(user.getUsername());
 		if (Null.isNullOrEmpty(userDB)) {
 			throw new VenteException(VenteErrorCode.USERNAME_NOT_FOUND, user.getUsername());
 		}
 		try {
-			userRepository.save(user);
-			return true;
+			userDB.setAddress(user.getAddress());
+			userDB.setEmail(user.getEmail());
+			userDB.setName(user.getName());
+			userDB.setTel(user.getTel());
+			userDB.setPassword(Md5Utils.getMd5(user.getPassword()));
+			userDB.setUpdateDate(LocalDateTime.now());
+			return userRepository.save(userDB);
 		} catch (Exception e) {
-			throw new VenteException(VenteErrorCode.CANNOT_DELETE_USER_ID, user.getUsername());
+			throw new VenteException(VenteErrorCode.CANNOT_UPDATE_USER_BY_USERNAME, user.getUsername(), e.getMessage());
 		}
 	}
 }

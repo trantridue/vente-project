@@ -37,22 +37,22 @@ public class User implements Comparable<User> {
 	protected Long id;
 
 	/** {@link String} username. */
-	protected final String username;
+	protected String username;
 
 	/** {@link String} password. */
-	protected final String password;
+	protected String password;
 
 	/** {@link String} name. */
-	protected final String name;
+	protected String name;
 
 	/** {@link String} email. */
-	protected final String email;
+	protected String email;
 
 	/** {@link String} tel. */
-	protected final String tel;
+	protected String tel;
 
 	/** {@link String} address. */
-	protected final String address;
+	protected String address;
 
 	/** {@link LocalDateTime} createDate. */
 	@Type(type = "com.nordnet.common.valueObject.date.MyLocalDateTime")
@@ -66,7 +66,7 @@ public class User implements Comparable<User> {
 	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@Column(name = "update_date")
-	protected final LocalDateTime updateDate;
+	protected LocalDateTime updateDate;
 
 	/**
 	 * default deprecated Constructor.
@@ -380,6 +380,62 @@ public class User implements Comparable<User> {
 				.andCompare(getTel(), o.getTel()).andCompare(getAddress(), o.getAddress())
 				.andCompare(getCreateDate(), o.getCreateDate()).andCompare(getUpdateDate(), o.getUpdateDate())
 				.compare();
+	}
+
+	/**
+	 * @param username
+	 *            the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	/**
+	 * @param password
+	 *            the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @param email
+	 *            the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @param tel
+	 *            the tel to set
+	 */
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	/**
+	 * @param address
+	 *            the address to set
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	/**
+	 * @param updateDate
+	 *            the updateDate to set
+	 */
+	public void setUpdateDate(LocalDateTime updateDate) {
+		this.updateDate = updateDate;
 	}
 
 }
