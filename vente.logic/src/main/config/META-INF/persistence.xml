@@ -4,6 +4,7 @@
 	<persistence-unit name="ventePersistenceUnit" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>com.nordnet.vente.domain.model.User</class>
+		<class>com.nordnet.vente.domain.model.Shop</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />

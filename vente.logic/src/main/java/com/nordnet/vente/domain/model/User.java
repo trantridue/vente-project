@@ -6,12 +6,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 import org.joda.time.LocalDateTime;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.nordnet.common.valueObject.utils.json.LocalDateTimeDeserializer;
@@ -68,6 +71,11 @@ public class User implements Comparable<User> {
 	@Column(name = "update_date")
 	protected LocalDateTime updateDate;
 
+	@ManyToOne
+	@JoinColumn(name = "shop_id")
+	@JsonBackReference
+	private Shop shop;
+
 	/**
 	 * default deprecated Constructor.
 	 *
@@ -84,6 +92,7 @@ public class User implements Comparable<User> {
 		address = null;
 		createDate = null;
 		updateDate = null;
+		shop = null;
 	}
 
 	/**
@@ -101,6 +110,7 @@ public class User implements Comparable<User> {
 		address = builder.address;
 		createDate = builder.createDate;
 		updateDate = builder.updateDate;
+		shop = builder.shop;
 	}
 
 	/**
@@ -137,6 +147,8 @@ public class User implements Comparable<User> {
 
 		/** {@link String} address. */
 		protected String address;
+
+		protected Shop shop;
 
 		/** {@link LocalDateTime} createDate. */
 		@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.nordnet.common.valueObject.utils.json.LocalDateTimeDeserializer.class)
@@ -246,6 +258,11 @@ public class User implements Comparable<User> {
 		 */
 		public Builder updateDate(final LocalDateTime updateDate) {
 			this.updateDate = updateDate;
+			return this;
+		}
+
+		public Builder shop(final Shop shop) {
+			this.shop = shop;
 			return this;
 		}
 
@@ -436,6 +453,21 @@ public class User implements Comparable<User> {
 	 */
 	public void setUpdateDate(LocalDateTime updateDate) {
 		this.updateDate = updateDate;
+	}
+
+	/**
+	 * @return the shop
+	 */
+	public Shop getShop() {
+		return shop;
+	}
+
+	/**
+	 * @param shop
+	 *            the shop to set
+	 */
+	public void setShop(Shop shop) {
+		this.shop = shop;
 	}
 
 }

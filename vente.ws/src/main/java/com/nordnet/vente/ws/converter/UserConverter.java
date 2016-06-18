@@ -10,6 +10,7 @@ import com.nordnet.common.valueObject.exception.InvalidArgumentException;
 import com.nordnet.vente.domain.model.User;
 import com.nordnet.vente.exception.VenteException;
 import com.nordnet.vente.utils.Md5Utils;
+import com.nordnet.vente.ws.entities.Shop;
 
 /**
  * The Class User.
@@ -25,9 +26,17 @@ public class UserConverter implements CustomConverter {
 		if (source instanceof User) {
 			User user = (User) source;
 
-			return com.nordnet.vente.ws.entities.User.builder().username(user.getUsername()).address(user.getAddress())
-					.password(user.getPassword()).email(user.getEmail()).name(user.getName()).id(user.getId())
-					.tel(user.getTel()).createDate(user.getCreateDate()).updateDate(user.getUpdateDate()).build();
+			return com.nordnet.vente.ws.entities.User
+					.builder()
+					.username(user.getUsername())
+					.address(user.getAddress())
+					.password(user.getPassword())
+					.email(user.getEmail())
+					.name(user.getName())
+					.id(user.getId())
+					.shop(Shop.builder().id(user.getShop().getId()).name(user.getShop().getName())
+							.description(user.getShop().getDescription()).build()).tel(user.getTel())
+					.createDate(user.getCreateDate()).updateDate(user.getUpdateDate()).build();
 		} else if (source instanceof com.nordnet.vente.ws.entities.UserInfo) {
 			com.nordnet.vente.ws.entities.UserInfo userInfo = (com.nordnet.vente.ws.entities.UserInfo) source;
 

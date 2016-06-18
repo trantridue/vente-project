@@ -1,5 +1,6 @@
 <!ELEMENT dataset (
-    user*
+    user*,
+    shop*
     )>
 
 
@@ -14,5 +15,12 @@
     address CDATA #IMPLIED
     create_date CDATA #IMPLIED
     update_date CDATA #IMPLIED
+    shop_id CDATA #IMPLIED
 >
 
+<!ELEMENT shop EMPTY>
+<!ATTLIST shop
+    id CDATA #REQUIRED
+    name CDATA #IMPLIED
+    description CDATA #IMPLIED
+>

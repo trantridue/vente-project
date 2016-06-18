@@ -45,6 +45,9 @@ public class User implements Comparable<User> {
 	@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.nordnet.common.valueObject.utils.json.LocalDateTimeSerializer.class)
 	protected final LocalDateTime updateDate;
 
+	/** {@link Shop} shop. */
+	protected final Shop shop;
+
 	/**
 	 * default deprecated Constructor.
 	 *
@@ -61,6 +64,7 @@ public class User implements Comparable<User> {
 		address = null;
 		createDate = null;
 		updateDate = null;
+		shop = null;
 	}
 
 	/**
@@ -78,9 +82,9 @@ public class User implements Comparable<User> {
 		address = builder.address;
 		createDate = builder.createDate;
 		updateDate = builder.updateDate;
+		shop = builder.shop;
 	
 		// check parameters
-		com.nordnet.common.valueObject.utils.Null.checkNotNullOrEmpty("id", id);
 	}
 
 	/**
@@ -129,6 +133,9 @@ public class User implements Comparable<User> {
 		@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.nordnet.common.valueObject.utils.json.LocalDateTimeDeserializer.class)
 		@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.nordnet.common.valueObject.utils.json.LocalDateTimeSerializer.class)
 		protected LocalDateTime updateDate;
+
+		/** {@link Shop} shop. */
+		protected Shop shop;
 
 		/** default protected Constructor. */
 		protected Builder() {
@@ -244,6 +251,18 @@ public class User implements Comparable<User> {
 		}
 
 		/**
+		 * Setter of shop.
+		 *
+		 * @param shop
+		 *			{@link Shop} the shop to set.
+		 * @return this {@link Builder}
+		 */
+		public Builder shop(final Shop shop) {
+			this.shop = shop;
+			return this;
+		}
+
+		/**
 		 * build new {@link User}.
 		 *
 		 * @return new {@link User} from this {@link Builder}
@@ -334,6 +353,15 @@ public class User implements Comparable<User> {
 		return updateDate;
 	}
 
+	/**
+	 * Getter of shop.
+	 *
+	 * @return {@link Shop} the shop
+	 */
+	public Shop getShop() {
+		return shop;
+	}
+
 	@Override
 	public boolean equals(final Object obj) {
 		if (!(obj instanceof User)) {
@@ -349,7 +377,8 @@ public class User implements Comparable<User> {
 			.andEquals(getTel(), user.getTel())
 			.andEquals(getAddress(), user.getAddress())
 			.andEquals(getCreateDate(), user.getCreateDate())
-			.andEquals(getUpdateDate(), user.getUpdateDate()).isEquals();
+			.andEquals(getUpdateDate(), user.getUpdateDate())
+			.andEquals(getShop(), user.getShop()).isEquals();
 	}
 
 	@Override
@@ -363,7 +392,8 @@ public class User implements Comparable<User> {
 		.append(getTel())
 		.append(getAddress())
 		.append(getCreateDate())
-		.append(getUpdateDate()).hashCode();
+		.append(getUpdateDate())
+		.append(getShop()).hashCode();
 	}
 
 	@Override
@@ -387,7 +417,8 @@ public class User implements Comparable<User> {
 		.andCompare(getTel(), o.getTel())
 		.andCompare(getAddress(), o.getAddress())
 		.andCompare(getCreateDate(), o.getCreateDate())
-		.andCompare(getUpdateDate(), o.getUpdateDate()).compare();
+		.andCompare(getUpdateDate(), o.getUpdateDate())
+		.andCompare(getShop(), o.getShop()).compare();
 	}
 
 

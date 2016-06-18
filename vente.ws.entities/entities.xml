@@ -46,7 +46,7 @@
 			<entities>
 				<User>
 					<properties>
-						<id type="Long" />
+						<id type="Long" optional="true"/>
 						<username type="String"  optional="true"/>
 						<password type="String"  optional="true"/>
 						<name type="String"  optional="true"/>
@@ -55,6 +55,7 @@
 						<address type="String"  optional="true"/>
 						<createDate type="LocalDateTime" optional="true"/>
 						<updateDate type="LocalDateTime" optional="true"/>
+						<shop type="Shop" optional="true"/>
 					</properties>
 				</User>
 				<UserInfo>
@@ -67,6 +68,13 @@
 						<address type="String"  optional="true"/>
 					</properties>
 				</UserInfo>
+				<Shop>
+					<properties>
+						<id type="Long" optional="true"/>
+						<name type="String"  optional="true"/>
+						<description type="String"  optional="true"/>
+					</properties>
+				</Shop>
 				<Reference>
 					<properties>
 						<id type="Identifier" />
