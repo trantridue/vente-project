@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
 	public List<User> getAllUser() throws VenteException {
 		List<User> users = userRepository.findAll();
 		if (users.size() > 10) {
-			throw new VenteException(VenteErrorCode.OVER_LIMIT_NBR_USER);
+			throw new VenteException(VenteErrorCode.OVER_LIMIT_NBR_USER, users.size());
 		} else {
 			return users;
 		}
