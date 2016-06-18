@@ -61,7 +61,7 @@ public class UserController extends WadlController {
 		return users;
 	}
 
-	@RequestMapping(value = "/{name}", method = GET, produces = APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/get/byname", method = GET, produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<com.nordnet.vente.ws.entities.User> getUserByName(
 			@RequestParam(required = false, value = "name") final String name) throws ConverterException {
