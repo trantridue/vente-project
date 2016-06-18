@@ -53,7 +53,7 @@ public class UserController {
 
 	@RequestMapping(value = "all", method = GET, produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public List<com.nordnet.vente.ws.entities.User> getAllUser() throws ConverterException {
+	public List<com.nordnet.vente.ws.entities.User> getAllUser() throws ConverterException, VenteException {
 		List<com.nordnet.vente.ws.entities.User> users = new ArrayList<com.nordnet.vente.ws.entities.User>();
 		for (User user : userService.getAllUser()) {
 			users.add(converter.convert(user, com.nordnet.vente.ws.entities.User.class));
