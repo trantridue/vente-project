@@ -53,12 +53,13 @@ public class UserController extends WadlController {
 
 	@RequestMapping(value = "all", method = GET, produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public List<com.nordnet.vente.ws.entities.User> getAllUser() throws ConverterException {
-		List<com.nordnet.vente.ws.entities.User> users = new ArrayList<com.nordnet.vente.ws.entities.User>();
-		for (User user : userService.getAllUser()) {
-			users.add(converter.convert(user, com.nordnet.vente.ws.entities.User.class));
-		}
-		return users;
+	public List<User> getAllUser() throws ConverterException {
+		// List<com.nordnet.vente.ws.entities.User> users = new ArrayList<com.nordnet.vente.ws.entities.User>();
+		// for (User user : userService.getAllUser()) {
+		// users.add(converter.convert(user, com.nordnet.vente.ws.entities.User.class));
+		// }
+		// return users;
+		return userService.getAllUser();
 	}
 
 	@RequestMapping(value = "/get/byname", method = GET, produces = APPLICATION_JSON_VALUE)

@@ -1,5 +1,7 @@
 package com.nordnet.vente.domain.model;
 
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
 
 import javax.persistence.Column;
@@ -14,7 +16,8 @@ import org.hibernate.annotations.Type;
 import org.joda.time.LocalDateTime;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.nordnet.common.valueObject.utils.json.LocalDateTimeDeserializer;
@@ -31,6 +34,7 @@ import com.nordnet.common.valueObject.utils.json.LocalDateTimeSerializer;
  */
 @Entity
 @Table(name = "user")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id")
 public class User implements Comparable<User> {
 
 	/** identifier. */
@@ -71,9 +75,8 @@ public class User implements Comparable<User> {
 	@Column(name = "update_date")
 	protected LocalDateTime updateDate;
 
-	@ManyToOne
+	@ManyToOne(fetch = EAGER, cascade = ALL)
 	@JoinColumn(name = "shop_id")
-	@JsonBackReference
 	private Shop shop;
 
 	/**

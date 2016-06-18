@@ -1,14 +1,23 @@
 package com.nordnet.vente.domain.model;
 
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
  * Shop.
@@ -21,6 +30,7 @@ import org.slf4j.LoggerFactory;
  */
 @Entity
 @Table(name = "shop")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id")
 public class Shop implements Comparable<Shop> {
 
 	/** identifier. */
@@ -36,6 +46,13 @@ public class Shop implements Comparable<Shop> {
 	protected final String description;
 
 	/**
+	 * listes des {@link User} de la Shop.
+	 */
+	@OneToMany(fetch = EAGER, cascade = ALL)
+	@JoinColumn(name = "shop_id")
+	private List<User> users;
+
+	/**
 	 * default deprecated Constructor.
 	 *
 	 * @deprecated
@@ -45,6 +62,7 @@ public class Shop implements Comparable<Shop> {
 		id = null;
 		name = null;
 		description = null;
+		users = null;
 	}
 
 	/**
@@ -57,6 +75,7 @@ public class Shop implements Comparable<Shop> {
 		id = builder.id;
 		name = builder.name;
 		description = builder.description;
+		users = builder.users;
 
 		// check parameters
 		com.nordnet.common.valueObject.utils.Null.checkNotNullOrEmpty("id", id);
@@ -87,6 +106,9 @@ public class Shop implements Comparable<Shop> {
 
 		/** {@link String} description. */
 		protected String description;
+
+		/** List<{@link User}> users. */
+		protected List<User> users;
 
 		/** default protected Constructor. */
 		protected Builder() {
@@ -126,6 +148,11 @@ public class Shop implements Comparable<Shop> {
 		 */
 		public Builder description(final String description) {
 			this.description = description;
+			return this;
+		}
+
+		public Builder description(final List<User> users) {
+			this.users = users;
 			return this;
 		}
 
@@ -197,6 +224,21 @@ public class Shop implements Comparable<Shop> {
 	public int compareTo(final Shop o) {
 		return new com.nordnet.common.valueObject.utils.Compare(true, true).andCompare(getId(), o.getId())
 				.andCompare(getName(), o.getName()).andCompare(getDescription(), o.getDescription()).compare();
+	}
+
+	/**
+	 * @return the users
+	 */
+	public List<User> getUsers() {
+		return users;
+	}
+
+	/**
+	 * @param users
+	 *            the users to set
+	 */
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 }
