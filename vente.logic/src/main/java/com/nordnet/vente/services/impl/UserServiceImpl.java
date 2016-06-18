@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
 		// Service and return
 		User userDB = userRepository.findByUsername(username);
 		if (Null.isNullOrEmpty(userDB)) {
-			throw new VenteException(VenteErrorCode.USERNAME_NOT_FOUND, user.getUsername());
+			throw new VenteException(VenteErrorCode.USERNAME_NOT_FOUND, username);
 		}
 		try {
 			userDB.setUsername(StringUtils.getNotNullString(user.getUsername(), userDB.getUsername()));
@@ -71,7 +71,7 @@ public class UserServiceImpl implements UserService {
 			userDB.setUpdateDate(LocalDateTime.now());
 			return userRepository.save(userDB);
 		} catch (Exception e) {
-			throw new VenteException(VenteErrorCode.CANNOT_UPDATE_USER_BY_USERNAME, user.getUsername(), e.getMessage());
+			throw new VenteException(VenteErrorCode.CANNOT_UPDATE_USER_BY_USERNAME, username, e.getMessage());
 		}
 	}
 }
