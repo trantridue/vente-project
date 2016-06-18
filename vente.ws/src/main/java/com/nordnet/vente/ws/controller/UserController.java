@@ -112,7 +112,8 @@ public class UserController extends WadlController {
 		User user = converter.convert(userInfo, com.nordnet.vente.domain.model.User.class);
 
 		// Service and return
-		return converter.convert(userService.updateUserByUserName(user), com.nordnet.vente.ws.entities.User.class);
+		return converter.convert(userService.updateUserByUserName(user, username),
+				com.nordnet.vente.ws.entities.User.class);
 	}
 
 	@RequestMapping(value = "/delete/{userid}", method = DELETE, produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
