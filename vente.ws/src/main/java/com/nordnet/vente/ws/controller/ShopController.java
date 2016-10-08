@@ -21,7 +21,7 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
 /**
- * Web Service interface for user
+ * Web Service interface for shop
  *
  * @author dtrantri
  */

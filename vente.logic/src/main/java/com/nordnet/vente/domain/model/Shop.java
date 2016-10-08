@@ -151,7 +151,7 @@ public class Shop implements Comparable<Shop> {
 			return this;
 		}
 
-		public Builder description(final List<User> users) {
+		public Builder users(final List<User> users) {
 			this.users = users;
 			return this;
 		}
@@ -232,13 +232,4 @@ public class Shop implements Comparable<Shop> {
 	public List<User> getUsers() {
 		return users;
 	}
-
-	/**
-	 * @param users
-	 *            the users to set
-	 */
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
-
 }
