@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.nordnet.vente</groupId>
@@ -7,7 +8,7 @@
 	</parent>
 	<artifactId>vente.ws</artifactId>
 	<packaging>war</packaging>
-	<name>vente-ws</name>
+	<name>vente.ws</name>
 
 	<dependencies>
 		<!-- SPRING -->
@@ -38,7 +39,7 @@
 			<artifactId>vente.logic</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<!-- WS ENTITIES -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -47,7 +48,7 @@
 		</dependency>
 
 		<!-- NORDNET FRAMEWORK -->
-		
+
 		<!-- CONVERTER -->
 		<dependency>
 			<groupId>framework.tools</groupId>
@@ -115,9 +116,10 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}-${blurredVersion}</finalName>
 		<plugins>
 			<!-- AspectJ compiler -->
- 			<plugin>
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>aspectj-maven-plugin</artifactId>
 				<version>1.7</version>

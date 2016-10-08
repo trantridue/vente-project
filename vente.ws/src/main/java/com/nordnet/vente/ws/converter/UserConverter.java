@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.nordnet.vente.ws.converter;
 
 import org.dozer.CustomConverter;

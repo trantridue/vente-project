@@ -7,7 +7,7 @@
 	</parent>
 	<artifactId>vente.logic</artifactId>
 	<packaging>jar</packaging>
-	<name>vente-logic</name>
+	<name>vente.logic</name>
 
 	<!-- Define version and some stuff here -->
 	<properties>

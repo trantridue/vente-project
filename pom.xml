@@ -9,8 +9,8 @@
 	<groupId>com.nordnet.vente</groupId>
 	<artifactId>vente.project</artifactId>
 	<packaging>pom</packaging>
-	<name>New vente parent pom</name>
-	<version>1.0.16-SNAPSHOT</version>
+	<name>vente project</name>
+	<version>1.0.0-SNAPSHOT</version>
 
 	<modules>
 		<module>vente.logic</module>
