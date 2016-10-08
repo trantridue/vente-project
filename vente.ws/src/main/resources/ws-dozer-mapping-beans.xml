@@ -11,15 +11,15 @@
 		<custom-converters>
 
 			<converter
-				type="com.nordnet.vente.ws.converter.UserConverter">
-				<class-a>com.nordnet.vente.domain.model.User</class-a>
-				<class-b>com.nordnet.vente.ws.entities.User</class-b>
+				type="com.zabuza.vente.ws.converter.UserConverter">
+				<class-a>com.zabuza.vente.domain.model.User</class-a>
+				<class-b>com.zabuza.vente.ws.entities.User</class-b>
 			</converter>
 			
 			<converter
-				type="com.nordnet.vente.ws.converter.UserConverter">
-				<class-a>com.nordnet.vente.ws.entities.UserInfo</class-a>
-				<class-b>com.nordnet.vente.domain.model.User</class-b>
+				type="com.zabuza.vente.ws.converter.UserConverter">
+				<class-a>com.zabuza.vente.ws.entities.UserInfo</class-a>
+				<class-b>com.zabuza.vente.domain.model.User</class-b>
 			</converter>
 
 		</custom-converters>

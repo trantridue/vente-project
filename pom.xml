@@ -6,7 +6,7 @@
 		<version>4.0.4</version>
 	</parent>
 
-	<groupId>com.nordnet.vente</groupId>
+	<groupId>com.zabuza.vente</groupId>
 	<artifactId>vente.project</artifactId>
 	<packaging>pom</packaging>
 	<name>vente.project</name>

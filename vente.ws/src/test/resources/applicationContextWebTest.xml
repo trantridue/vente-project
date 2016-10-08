@@ -36,7 +36,7 @@
 		<property name="mapper" ref="mapper" />
 	</bean>
 	
-	<context:component-scan base-package="com.nordnet.vente.ws">
+	<context:component-scan base-package="com.zabuza.vente.ws">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>

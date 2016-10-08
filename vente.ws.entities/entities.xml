@@ -42,7 +42,7 @@
 		</LocalDateTime>
 	</classes>
 	<packages>
-		<package name="com.nordnet.vente.ws.entities">
+		<package name="com.zabuza.vente.ws.entities">
 			<entities>
 				<User>
 					<properties>
