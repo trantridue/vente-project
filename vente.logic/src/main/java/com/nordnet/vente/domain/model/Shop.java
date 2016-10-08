@@ -40,10 +40,10 @@ public class Shop implements Comparable<Shop> {
 	protected Long id;
 
 	/** {@link String} name. */
-	protected final String name;
+	protected String name;
 
 	/** {@link String} description. */
-	protected final String description;
+	protected String description;
 
 	/**
 	 * listes des {@link User} de la Shop.

@@ -66,7 +66,7 @@ public class User implements Comparable<User> {
 	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@Column(name = "create_date")
-	protected final LocalDateTime createDate;
+	protected LocalDateTime createDate;
 
 	/** {@link LocalDateTime} updateDate. */
 	@Type(type = "com.nordnet.common.valueObject.date.MyLocalDateTime")

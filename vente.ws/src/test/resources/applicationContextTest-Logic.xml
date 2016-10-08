@@ -11,11 +11,10 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/data/jpa 
 	http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
-	http://www.springframework.org/schema/context 
-	http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-	
-		<!-- For configuration externalization -->
-	<import resource="classpath*:applicationContext-Configuration.xml" />	
+	">
+
+	<!-- For configuration externalization -->
+	<import resource="classpath*:applicationContext-Configuration.xml" />
 
 	<tx:annotation-driven />
 	<jpa:repositories base-package="com.nordnet.vente"
@@ -25,7 +24,8 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/test_vente" />
 		<property name="username" value="test" />
@@ -38,10 +38,9 @@
 		<property name="persistenceUnitName" value="ventePersistenceUnit" />
 		<property name="persistenceXmlLocation" value="classpath:/META-INF/persistence.xml" />
 		<property name="jpaVendorAdapter">
-			<bean
-				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="database" value="MYSQL" />
-				<property name="databasePlatform" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+				<property name="databasePlatform" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 				<property name="showSql" value="true" />
 				<property name="generateDdl" value="false" />
 			</bean>
@@ -51,7 +50,7 @@
 		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor">
 		<property name="defaultPersistenceUnitName" value="ventePersistenceUnit" />
 	</bean>
-	
+
 	<context:annotation-config />
 	<context:component-scan base-package="com.nordnet.vente" />
 

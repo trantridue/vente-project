@@ -56,18 +56,6 @@
 			<version>3.1.2</version>
 		</dependency>
 
-		<!-- CONFIGURATION -->
-		<dependency>
-			<groupId>framework.tools</groupId>
-			<artifactId>configuration</artifactId>
-			<version>1.0.0</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>spring</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 
 		<!-- JTA TRANSACTION -->
 		<dependency>

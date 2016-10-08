@@ -9,7 +9,7 @@
 	<groupId>com.nordnet.vente</groupId>
 	<artifactId>vente.project</artifactId>
 	<packaging>pom</packaging>
-	<name>vente project</name>
+	<name>vente.project</name>
 	<version>1.0.0-SNAPSHOT</version>
 
 	<modules>
