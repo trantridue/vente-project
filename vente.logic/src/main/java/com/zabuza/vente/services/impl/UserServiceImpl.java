@@ -63,11 +63,11 @@ public class UserServiceImpl implements UserService {
 		try {
 			userDB.setAddress(StringUtils.getNotNullString(user.getAddress(), userDB.getAddress()));
 			userDB.setEmail(StringUtils.getNotNullString(user.getEmail(), userDB.getEmail()));
-			userDB.setName(StringUtils.getNotNullString(user.getName(), userDB.getName()));
-			userDB.setTel(StringUtils.getNotNullString(user.getTel(), userDB.getTel()));
+//			userDB.setName(StringUtils.getNotNullString(user.getName(), userDB.getName()));
+//			userDB.setTel(StringUtils.getNotNullString(user.getTel(), userDB.getTel()));
 			userDB.setPassword(!Null.isNullOrEmpty(user.getPassword()) ? Md5Utils.getMd5(user.getPassword()) : userDB
 					.getPassword());
-			userDB.setUpdateDate(LocalDateTime.now());
+//			userDB.setUpdateDate(LocalDateTime.now());
 			return userRepository.save(userDB);
 		} catch (Exception e) {
 			throw new VenteException(VenteErrorCode.CANNOT_UPDATE_USER_BY_USERNAME, user.getUsername(), e.getMessage());

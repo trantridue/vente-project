@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nordnet.common.wadl.WadlController;
-import com.zabuza.vente.domain.model.Shop;
+import com.zabuza.vente.domain.model.Branch;
 import com.zabuza.vente.domain.repository.ShopRepository;
 import com.zabuza.vente.domain.repository.UserRepository;
 import com.wordnik.swagger.annotations.Api;
@@ -29,7 +29,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @Api(value = "shop", description = "shop API")
 @Controller
 @RequestMapping("/shop/")
-public class ShopController extends WadlController {
+public class BranchController extends WadlController {
 
 	/** {@link UserRepository} userRepository. */
 	@Autowired
@@ -41,8 +41,8 @@ public class ShopController extends WadlController {
 	@RequestMapping(value = "all", method = GET, produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
 	@ApiOperation(value = "Get All Shop", notes = "Find all shop")
-	public List<Shop> getAllShop() throws ConverterException {
-		List<Shop> shops = shopRepository.findAll();
+	public List<Branch> getAllShop() throws ConverterException {
+		List<Branch> shops = shopRepository.findAll();
 		return shops;
 	}
 }

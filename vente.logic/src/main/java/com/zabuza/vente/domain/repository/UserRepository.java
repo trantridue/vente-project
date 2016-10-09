@@ -13,12 +13,12 @@ import com.zabuza.vente.domain.model.User;
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	@Query("from User u where u.name like %:name% order by u.name desc")
-	List<User> findByName(@Param("name") String name);
+	@Query("from User u where u.firstname like %:firstname% order by u.firstname desc")
+	List<User> findByName(@Param("firstname") String firstname);
 
 	@Query("from User u where u.username = :username")
 	User findByUsername(@Param("username") String username);
 
-	@Query("from User m where m.createDate between :startDate and :endDate order by m.createDate desc")
+	@Query("from User m where m.date between :startDate and :endDate order by m.date desc")
 	List<User> findByPeriod(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 }

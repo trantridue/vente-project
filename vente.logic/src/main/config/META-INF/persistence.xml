@@ -3,8 +3,9 @@
 
 	<persistence-unit name="ventePersistenceUnit" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>com.zabuza.vente.domain.model.Branch</class>
+		<class>com.zabuza.vente.domain.model.Role</class>
 		<class>com.zabuza.vente.domain.model.User</class>
-		<class>com.zabuza.vente.domain.model.Shop</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />

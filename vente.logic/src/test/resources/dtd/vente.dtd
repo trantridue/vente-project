@@ -1,6 +1,7 @@
 <!ELEMENT dataset (
     user*,
-    shop*
+    branch*,
+    role*
     )>
 
 
@@ -9,18 +10,32 @@
     id CDATA #REQUIRED
     username CDATA #IMPLIED
     password CDATA #IMPLIED
-    name CDATA #REQUIRED
-    email CDATA #IMPLIED
-    tel CDATA #IMPLIED
+    phone CDATA #REQUIRED
+    firstname CDATA #IMPLIED
+    lastname CDATA #IMPLIED
     address CDATA #IMPLIED
-    create_date CDATA #IMPLIED
-    update_date CDATA #IMPLIED
-    shop_id CDATA #IMPLIED
+    email CDATA #IMPLIED
+    is_active CDATA #IMPLIED
+    birth_day CDATA #IMPLIED
+    date CDATA #IMPLIED
+    base_salary CDATA #IMPLIED
+    branch_id CDATA #IMPLIED
+    role_id CDATA #IMPLIED
 >
 
-<!ELEMENT shop EMPTY>
-<!ATTLIST shop
+<!ELEMENT branch EMPTY>
+<!ATTLIST branch
     id CDATA #REQUIRED
     name CDATA #IMPLIED
+    label CDATA #IMPLIED
+    address CDATA #IMPLIED
+    date CDATA #IMPLIED
+>
+
+<!ELEMENT role EMPTY>
+<!ATTLIST role
+    id CDATA #REQUIRED
+    name CDATA #IMPLIED
+    label CDATA #IMPLIED
     description CDATA #IMPLIED
 >

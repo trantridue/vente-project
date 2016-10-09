@@ -2,8 +2,8 @@ package com.zabuza.vente.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.zabuza.vente.domain.model.Shop;
+import com.zabuza.vente.domain.model.Branch;
 
-public interface ShopRepository extends JpaRepository<Shop, Long> {
+public interface ShopRepository extends JpaRepository<Branch, Long> {
 
 }
