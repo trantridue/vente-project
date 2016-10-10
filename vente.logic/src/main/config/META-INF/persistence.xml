@@ -6,6 +6,34 @@
 		<class>com.zabuza.vente.domain.model.Branch</class>
 		<class>com.zabuza.vente.domain.model.Role</class>
 		<class>com.zabuza.vente.domain.model.User</class>
+		<class>com.zabuza.vente.domain.model.Customer</class>
+		<class>com.zabuza.vente.domain.model.CustomerPayHistory</class>
+		<class>com.zabuza.vente.domain.model.ExportFacture</class>
+		<class>com.zabuza.vente.domain.model.ExportFactureProduct</class>
+		<class>com.zabuza.vente.domain.model.ExportProductReturn</class>
+		<class>com.zabuza.vente.domain.model.ExportType</class>
+		<class>com.zabuza.vente.domain.model.Fund</class>
+		<class>com.zabuza.vente.domain.model.FundExchange</class>
+		<class>com.zabuza.vente.domain.model.FundHistory</class>
+		<class>com.zabuza.vente.domain.model.ImportFacture</class>
+		<class>com.zabuza.vente.domain.model.ImportFactureProduct</class>
+		<class>com.zabuza.vente.domain.model.IncomeHistory</class>
+		<class>com.zabuza.vente.domain.model.Product</class>
+		<class>com.zabuza.vente.domain.model.ProductBranchExchage</class>
+		<class>com.zabuza.vente.domain.model.ProductDeviation</class>
+		<class>com.zabuza.vente.domain.model.Provider</class>
+		<class>com.zabuza.vente.domain.model.ProviderPaymentFund</class>
+		<class>com.zabuza.vente.domain.model.ProviderPaymentHistory</class>
+		<class>com.zabuza.vente.domain.model.ReturnProviderFacture</class>
+		<class>com.zabuza.vente.domain.model.ReturnProviderFactureProduct</class>
+		<class>com.zabuza.vente.domain.model.SaleProduct</class>
+		<class>com.zabuza.vente.domain.model.SaleType</class>
+		<class>com.zabuza.vente.domain.model.SpendingFund</class>
+		<class>com.zabuza.vente.domain.model.SpendingHistory</class>
+		<class>com.zabuza.vente.domain.model.UserAbsentHistory</class>
+		<class>com.zabuza.vente.domain.model.UserBaseSalaryHistory</class>
+		<class>com.zabuza.vente.domain.model.UserPaymentFund</class>
+		<class>com.zabuza.vente.domain.model.UserPaymentHistory</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />

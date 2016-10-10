@@ -53,15 +53,15 @@ public class UserController extends WadlController {
 
 	@RequestMapping(value = "all", method = GET, produces = APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public List<com.zabuza.vente.ws.entities.User> getAllUser()
+	public List<com.zabuza.vente.domain.model.User> getAllUser()
 			throws ConverterException {
-		List<com.zabuza.vente.ws.entities.User> users = new ArrayList<com.zabuza.vente.ws.entities.User>();
-		for (User user : userService.getAllUser()) {
-			users.add(converter.convert(user,
-					com.zabuza.vente.ws.entities.User.class));
-		}
-		return users;
-//		 return userService.getAllUser();
+//		List<com.zabuza.vente.ws.entities.User> users = new ArrayList<com.zabuza.vente.ws.entities.User>();
+//		for (User user : userService.getAllUser()) {
+//			users.add(converter.convert(user,
+//					com.zabuza.vente.ws.entities.User.class));
+//		}
+//		return users;
+		 return userService.getAllUser();
 	}
 
 	@RequestMapping(value = "/get/byname", method = GET, produces = APPLICATION_JSON_VALUE)

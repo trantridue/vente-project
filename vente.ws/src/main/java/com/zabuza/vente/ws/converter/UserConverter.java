@@ -29,20 +29,17 @@ public class UserConverter implements CustomConverter {
 					.address(user.getAddress())
 					.password(user.getPassword())
 					.email(user.getEmail())
-					.name(user.getName())
-					.id(user.getId())
-					.shop(Shop.builder().id(user.getShop().getId()).name(user.getShop().getName())
-							.description(user.getShop().getDescription()).build()).tel(user.getTel())
-					.createDate(user.getCreateDate()).updateDate(user.getUpdateDate()).build();
+					.build();
 		} else if (source instanceof com.zabuza.vente.ws.entities.UserInfo) {
 			com.zabuza.vente.ws.entities.UserInfo userInfo = (com.zabuza.vente.ws.entities.UserInfo) source;
 
 			try {
-				return com.zabuza.vente.domain.model.User.builder().username(userInfo.getUsername())
-						.address(userInfo.getAddress()).password(Md5Utils.getMd5(userInfo.getPassword()))
-						.email(userInfo.getEmail()).tel(userInfo.getTel()).name(userInfo.getName())
-						.createDate(LocalDateTime.now()).updateDate(LocalDateTime.now()).build();
-			} catch (VenteException e) {
+//				return com.zabuza.vente.domain.model.User.builder().username(userInfo.getUsername())
+//						.address(userInfo.getAddress()).password(Md5Utils.getMd5(userInfo.getPassword()))
+//						.email(userInfo.getEmail()).tel(userInfo.getTel()).name(userInfo.getName())
+//						.createDate(LocalDateTime.now()).updateDate(LocalDateTime.now()).build();
+				return new com.zabuza.vente.domain.model.User();
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

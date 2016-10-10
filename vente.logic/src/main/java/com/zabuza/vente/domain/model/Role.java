@@ -1,8 +1,22 @@
 package com.zabuza.vente.domain.model;
 
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.EAGER;
+
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 /**
@@ -12,6 +26,7 @@ import java.util.Set;
 @Entity
 @Table(name="role")
 @NamedQuery(name="Role.findAll", query="SELECT r FROM Role r")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id")
 public class Role implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -30,7 +45,8 @@ public class Role implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to User
-	@OneToMany(mappedBy="role")
+	@OneToMany(mappedBy="role",fetch = EAGER, cascade = ALL)
+//	@JsonManagedReference
 	private Set<User> users;
 
 	public Role() {
